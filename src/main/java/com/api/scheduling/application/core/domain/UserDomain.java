@@ -20,7 +20,7 @@ public class UserDomain {
     }
 
     public UUID getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(UUID id) {
@@ -28,7 +28,7 @@ public class UserDomain {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -36,7 +36,7 @@ public class UserDomain {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -44,18 +44,18 @@ public class UserDomain {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public List<ClientDomain> getClients() {
-        return scheduling;
+    public List<ClientDomain> getScheduling() {
+        return this.scheduling;
     }
 
-    public void setClients(List<ClientDomain> scheduling) {
+    public void setScheduling(List<ClientDomain> scheduling) {
         this.scheduling = scheduling;
     }
 }

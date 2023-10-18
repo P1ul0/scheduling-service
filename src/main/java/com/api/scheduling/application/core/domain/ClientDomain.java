@@ -1,7 +1,6 @@
 package com.api.scheduling.application.core.domain;
 
 import com.api.scheduling.adapters.inbound.entity.UserEntity;
-import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -17,10 +16,10 @@ public class ClientDomain {
 
     private  String telephone;
 
-    private UserEntity user;
+    private UserDomain user;
 
 
-    public ClientDomain(UUID id, String name, String date, String typeService, String telephone, UserEntity user) {
+    public ClientDomain(UUID id, String name, String date, String typeService, String telephone, UserDomain user) {
         this.id = id;
         this.name = name;
         Date = date;
@@ -69,11 +68,11 @@ public class ClientDomain {
         this.telephone = telephone;
     }
 
-    public UserEntity getUser() {
+    public UserDomain getUser() {
         return user;
     }
 
-    public void setUser(UserEntity user) {
+    public void setUser(UserDomain user) {
         this.user = user;
     }
 }
