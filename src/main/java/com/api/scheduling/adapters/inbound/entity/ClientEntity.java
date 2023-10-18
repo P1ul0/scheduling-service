@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "client")
