@@ -9,9 +9,12 @@ public class UserDomain {
     private String name;
     private String email;
     private String password;
-    private List<ClientDomain> scheduling;
+    private List<SchedulingDomain> scheduling;
 
-    public UserDomain(UUID id, String name, String email, String password, List<ClientDomain> scheduling) {
+    public UserDomain() {
+    }
+
+    public UserDomain(UUID id, String name, String email, String password, List<SchedulingDomain> scheduling) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -51,11 +54,11 @@ public class UserDomain {
         this.password = password;
     }
 
-    public List<ClientDomain> getScheduling() {
+    public List<SchedulingDomain> getScheduling() {
         return this.scheduling;
     }
 
-    public void setScheduling(List<ClientDomain> scheduling) {
+    public void setScheduling(List<SchedulingDomain> scheduling) {
         this.scheduling = scheduling;
     }
 }

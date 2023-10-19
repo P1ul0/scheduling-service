@@ -25,6 +25,6 @@ public class UserEntity {
     private String password;
 
     @OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
-    private List<ClientEntity> clients;
+    private List<SchedulingEntity> scheduling;
 
 }
