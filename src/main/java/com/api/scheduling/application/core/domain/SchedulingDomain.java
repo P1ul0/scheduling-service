@@ -1,10 +1,8 @@
 package com.api.scheduling.application.core.domain;
 
-import com.api.scheduling.adapters.inbound.entity.UserEntity;
-
 import java.util.UUID;
 
-public class ClientDomain {
+public class SchedulingDomain {
 
     private UUID id;
 
@@ -18,8 +16,11 @@ public class ClientDomain {
 
     private UserDomain user;
 
+    public SchedulingDomain() {
+    }
 
-    public ClientDomain(UUID id, String name, String date, String typeService, String telephone, UserDomain user) {
+
+    public SchedulingDomain(UUID id, String name, String date, String typeService, String telephone, UserDomain user) {
         this.id = id;
         this.name = name;
         Date = date;

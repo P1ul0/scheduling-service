@@ -7,11 +7,11 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
 
-@Entity(name = "client")
+@Entity(name = "scheduling")
 @Data
 @RequiredArgsConstructor
 @Builder
-public class ClientEntity {
+public class SchedulingEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
