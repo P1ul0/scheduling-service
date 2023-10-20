@@ -1,7 +1,6 @@
 package com.api.scheduling.adapters.inbound.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -11,7 +10,6 @@ import java.util.UUID;
 @Entity(name = "user")
 @Data
 @RequiredArgsConstructor
-@Builder
 public class UserEntity {
 
     @Id
