@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
 
-@Entity(name = "scheduling")
+@Entity(name = "schedulings")
 @Data
 @RequiredArgsConstructor
 public class SchedulingEntity {

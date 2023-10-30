@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
-@Entity(name = "user")
+@Entity(name = "users")
 @Data
 @RequiredArgsConstructor
 public class UserEntity {
