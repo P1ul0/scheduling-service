@@ -12,6 +12,6 @@ WORKDIR /scheduling
 
 COPY --from=builder /jar/target/*.jar ./scheduling.jar
 
-EXPOSE 8081
+EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "scheduling.jar"]
