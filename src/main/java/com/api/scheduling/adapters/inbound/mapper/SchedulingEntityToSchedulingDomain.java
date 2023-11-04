@@ -6,11 +6,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SchedulingDomainToSchedulingEntity {
-
-    public SchedulingEntity mapper(SchedulingDomain schedulingDomain){
-        var schedulingEntity = new SchedulingEntity();
-        BeanUtils.copyProperties(schedulingDomain, schedulingEntity);
-        return schedulingEntity;
+public class SchedulingEntityToSchedulingDomain {
+    public SchedulingDomain mapper(SchedulingEntity schedulingEntity) {
+        SchedulingDomain schedulingDomain = new SchedulingDomain();
+        BeanUtils.copyProperties(schedulingEntity, schedulingDomain);
+        return schedulingDomain;
     }
 }
