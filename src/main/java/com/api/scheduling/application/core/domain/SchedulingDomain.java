@@ -14,18 +14,28 @@ public class SchedulingDomain {
 
     private  String telephone;
 
+    private StatusDomain status;
+
     private UserDomain user;
 
     public SchedulingDomain() {
     }
 
-
-    public SchedulingDomain(UUID id, String name, String date, String typeService, String telephone, UserDomain user) {
+    public SchedulingDomain(
+            UUID id,
+            String name,
+            String date,
+            String typeService,
+            String telephone,
+            StatusDomain status,
+            UserDomain user
+    ) {
         this.id = id;
         this.name = name;
         Date = date;
         this.typeService = typeService;
         this.telephone = telephone;
+        this.status = status;
         this.user = user;
     }
 
@@ -67,6 +77,14 @@ public class SchedulingDomain {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public StatusDomain getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusDomain status) {
+        this.status = status;
     }
 
     public UserDomain getUser() {
