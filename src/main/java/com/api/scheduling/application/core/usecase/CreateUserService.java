@@ -14,7 +14,7 @@ public class CreateUserService implements CreateUserServicePort {
 
 
     @Override
-    public UserDomain createUser(UserDomain userDomain) {
-        return createUserPort.createUser(userDomain);
+    public void createUser(UserDomain userDomain) {
+         createUserPort.createUser(userDomain);
     }
 }
