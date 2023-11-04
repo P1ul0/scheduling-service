@@ -21,6 +21,8 @@ public class SchedulingEntity {
 
     private  String typeService;
 
+    private double price;
+
     private  String telephone;
 
     private StatusEnum status;

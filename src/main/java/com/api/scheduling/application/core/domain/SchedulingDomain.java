@@ -8,9 +8,11 @@ public class SchedulingDomain {
 
     private String name;
 
-    private String Date;
+    private String date;
 
     private  String typeService;
+
+    private double price;
 
     private  String telephone;
 
@@ -26,14 +28,16 @@ public class SchedulingDomain {
             String name,
             String date,
             String typeService,
+            double price,
             String telephone,
             StatusDomain status,
             UserDomain user
     ) {
         this.id = id;
         this.name = name;
-        Date = date;
+        this.date = date;
         this.typeService = typeService;
+        this.price = price;
         this.telephone = telephone;
         this.status = status;
         this.user = user;
@@ -55,12 +59,20 @@ public class SchedulingDomain {
         this.name = name;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public String getDate() {
-        return Date;
+        return this.date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getTypeService() {
