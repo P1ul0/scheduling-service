@@ -1,6 +1,8 @@
 package com.api.scheduling.config;
 
+import com.api.scheduling.adapters.outbound.useCaseAdapters.AddSchedulingAdapters;
 import com.api.scheduling.adapters.outbound.useCaseAdapters.CreateUserAdapters;
+import com.api.scheduling.application.core.usecase.AddSchedulingService;
 import com.api.scheduling.application.core.usecase.CreateUserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -20,5 +22,10 @@ public class BeansConfig {
     @Bean
     public CreateUserService createUserService(CreateUserAdapters createUserAdapters) {
         return new CreateUserService(createUserAdapters);
+    }
+
+    @Bean
+    public AddSchedulingService addSchedulingService(AddSchedulingAdapters addSchedulingAdapters) {
+        return new AddSchedulingService(addSchedulingAdapters);
     }
 }
