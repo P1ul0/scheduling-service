@@ -1,6 +1,7 @@
-package com.api.scheduling.adapters.outbound.useCaseAdapters;
+package com.api.scheduling.adapters.outbound.caseAdapters;
 
 import com.api.scheduling.adapters.inbound.entity.SchedulingEntity;
+import com.api.scheduling.adapters.inbound.entity.UserEntity;
 import com.api.scheduling.adapters.inbound.mapper.SchedulingDomainToSchedulingEntity;
 import com.api.scheduling.adapters.outbound.repository.UserRepository;
 import com.api.scheduling.application.core.domain.SchedulingDomain;
@@ -21,17 +22,17 @@ public class AddSchedulingAdapters implements AddSchedulingPort {
 
     @Override
     public void AddScheduling(UUID userId, SchedulingDomain schedulingDomain) {
-        userRepository.findById(userId).ifPresent(user -> {
-            List<SchedulingEntity> schedulingEntityList = user.getScheduling();
+        UserEntity user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
 
-            SchedulingEntity schedulingEntity = schedulingDomainToSchedulingEntity.mapper(schedulingDomain);
-            schedulingEntity.setUser(user);
+        List<SchedulingEntity> schedulingEntityList = user.getScheduling();
 
-            schedulingEntityList.add(schedulingEntity);
-            user.setScheduling(schedulingEntityList);
+        SchedulingEntity schedulingEntity = schedulingDomainToSchedulingEntity.mapper(schedulingDomain);
+        schedulingEntity.setUser(user);
 
-            userRepository.save(user);
-        });
+        schedulingEntityList.add(schedulingEntity);
+        user.setScheduling(schedulingEntityList);
+
+        userRepository.save(user);
 
     }
 }
