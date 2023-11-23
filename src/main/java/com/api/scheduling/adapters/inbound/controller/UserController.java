@@ -9,6 +9,7 @@ import com.api.scheduling.application.core.domain.SchedulingDomain;
 import com.api.scheduling.application.core.domain.UserDomain;
 import com.api.scheduling.application.ports.in.AddSchedulingServicePort;
 import com.api.scheduling.application.ports.in.CreateUserServicePort;
+import com.api.scheduling.application.ports.in.DeleteUserServicePort;
 import com.api.scheduling.application.ports.in.GetUserServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,8 @@ public class UserController {
 
     private final GetUserServicePort getUserServicePort;
 
+    private final DeleteUserServicePort deleteUserServicePort;
+
     private final AddSchedulingServicePort addSchedulingServicePort;
 
     @PostMapping(value = "/create")
@@ -44,6 +47,13 @@ public class UserController {
     @GetMapping(value = "/{id}")
     public UserEntity getUser(@PathVariable("id") UUID userId) {
         return userDomainToUserEntity.mapper(getUserServicePort.getUser(userId));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public String deleteUser(@PathVariable("id") UUID userId) {
+
+        deleteUserServicePort.executeDeleteUser(userId);
+        return "User deleted successfully";
     }
 
 
