@@ -3,11 +3,13 @@ package com.api.scheduling.adapters.inbound.controller;
 import com.api.scheduling.adapters.inbound.entity.SchedulingEntity;
 import com.api.scheduling.adapters.inbound.entity.UserEntity;
 import com.api.scheduling.adapters.inbound.mapper.SchedulingEntityToSchedulingDomain;
+import com.api.scheduling.adapters.inbound.mapper.UserDomainToUserEntity;
 import com.api.scheduling.adapters.inbound.mapper.UserEntityToUserDomain;
 import com.api.scheduling.application.core.domain.SchedulingDomain;
 import com.api.scheduling.application.core.domain.UserDomain;
 import com.api.scheduling.application.ports.in.AddSchedulingServicePort;
 import com.api.scheduling.application.ports.in.CreateUserServicePort;
+import com.api.scheduling.application.ports.in.GetUserServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +22,13 @@ public class UserController {
 
     private final UserEntityToUserDomain userEntityToUserDomain;
 
+    private final UserDomainToUserEntity userDomainToUserEntity;
+
     private final SchedulingEntityToSchedulingDomain schedulingEntityToSchedulingDomain;
 
     private final CreateUserServicePort createUserServicePort;
+
+    private final GetUserServicePort getUserServicePort;
 
     private final AddSchedulingServicePort addSchedulingServicePort;
 
@@ -33,6 +39,11 @@ public class UserController {
         createUserServicePort.createUser(userDomain);
 
         return "User created successfully";
+    }
+
+    @GetMapping(value = "/{id}")
+    public UserEntity getUser(@PathVariable("id") UUID userId) {
+        return userDomainToUserEntity.mapper(getUserServicePort.getUser(userId));
     }
 
 
