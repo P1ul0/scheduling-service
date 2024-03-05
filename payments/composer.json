@@ -1,0 +1,16 @@
+{
+    "name": "paulo/payments",
+    "description": "Service de pagamento",
+    "autoload": {
+        "psr-4": {
+            "Paulo\\Payments\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Paulo",
+            "email": "paulocesar147852@gmail.com"
+        }
+    ],
+    "require": {}
+}
